@@ -39,7 +39,7 @@
   },
   "bit": {
     "env": {
-      "compiler": "bit.envs/compilers/babel@7.0.4"
+      "compiler": "bit.envs/compilers/react"
     },
     "componentsDefaultDirectory": "components/{name}",
     "packageManager": "npm"
