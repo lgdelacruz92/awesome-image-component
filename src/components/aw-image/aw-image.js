@@ -7,7 +7,12 @@ const AWImage = props => {
   return (
     <ImageContextProvider>
       <AWImageContainer>
-        <img src={src} alt={alt} />
+        <img
+          style={{ width: "100%", height: "100%" }}
+          draggable={false}
+          src={src}
+          alt={alt}
+        />
       </AWImageContainer>
     </ImageContextProvider>
   );
