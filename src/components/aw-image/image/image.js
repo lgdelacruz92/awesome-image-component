@@ -16,7 +16,7 @@ const useStyles = MUI.makeStyles(theme => {
 const Image = props => {
   const classes = useStyles();
   const { image } = props;
-  const { dispatchImageState } = React.useContext(ImageContext);
+  const { imageState, dispatchImageState } = React.useContext(ImageContext);
 
   React.useEffect(() => {
     dispatchImageState(image);
@@ -24,14 +24,19 @@ const Image = props => {
 
   return (
     <ImageContainer
-      id={createContainerId(image.id)}
-      rect={{ x: image.x, y: image.y, w: image.w, h: image.h }}
+      id={createContainerId(imageState.id)}
+      rect={{
+        x: imageState.x,
+        y: imageState.y,
+        w: imageState.w,
+        h: imageState.h
+      }}
     >
       <img
         className={classes.image}
         draggable={false}
-        src={image.src}
-        alt={image.alt}
+        src={imageState.src}
+        alt={imageState.alt}
       />
     </ImageContainer>
   );

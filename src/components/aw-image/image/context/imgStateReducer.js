@@ -5,4 +5,6 @@ export const initImageState = {
   h: 0
 };
 
-export const imgStateReducer = (state, dispatch) => {};
+export const imgStateReducer = (imageState, action) => {
+  return { ...action };
+};
