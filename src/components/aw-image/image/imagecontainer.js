@@ -2,7 +2,7 @@ import React from "react";
 import * as MUI from "@material-ui/core";
 import { ImageContext } from "./context";
 import { translate } from "components/utils";
-import { onMouseUp, onMouseMove, onMouseDown } from "./helpers";
+import { onMouseUp, onMouseMove, onMouseDown } from "./mousehandler";
 
 const useStyles = MUI.makeStyles(theme => {
   return {
