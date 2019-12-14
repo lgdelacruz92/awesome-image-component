@@ -6,7 +6,8 @@ export const mouseEventReducer = (mouseEvent, action) => {
       startY: action.y,
       targetId: action.targetId,
       posX: action.posX,
-      posY: action.posY
+      posY: action.posY,
+      action: action.action
     };
   } else if (action.type === "mouse-up") {
     return {

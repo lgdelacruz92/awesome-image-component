@@ -1,5 +1,5 @@
 export const onMouseDown = props => {
-  const { e, id, dispatchMouseEventState, posX, posY } = props;
+  const { e, id, dispatchMouseEventState, posX, posY, action } = props;
   if (e.currentTarget.id === id) {
     dispatchMouseEventState({
       type: "mouse-down",
@@ -7,7 +7,8 @@ export const onMouseDown = props => {
       y: e.clientY,
       targetId: id,
       posX: posX,
-      posY: posY
+      posY: posY,
+      action: action
     });
   }
 };

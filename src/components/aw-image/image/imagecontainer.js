@@ -47,7 +47,8 @@ const ImageContainer = props => {
           e,
           dispatchMouseEventState,
           posX: imageState.x,
-          posY: imageState.y
+          posY: imageState.y,
+          action: "translate"
         })
       }
       id={id}

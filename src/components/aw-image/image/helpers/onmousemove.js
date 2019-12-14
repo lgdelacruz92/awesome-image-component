@@ -2,7 +2,8 @@ export const onMouseMove = props => {
   const { mouseEventState, id, dispatchImageState, e } = props;
   if (
     mouseEventState.targetId === id &&
-    mouseEventState.status === "mouse-down"
+    mouseEventState.status === "mouse-down" &&
+    mouseEventState.action === "translate"
   ) {
     const startX = mouseEventState.startX;
     const startY = mouseEventState.startY;
