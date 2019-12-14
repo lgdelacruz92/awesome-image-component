@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  initMouseEventState,
-  mouseEventReducer
-} from "./mouseEventStateReducer";
-
+import { initEventState, eventReducer } from "./eventStateReducer";
 import { initImageState, imgStateReducer } from "./imgStateReducer";
 
 const ImageContext = React.createContext(initImageState);
@@ -15,9 +11,9 @@ const ImageContextProvider = props => {
     initImageState
   );
 
-  const [mouseEventState, dispatchMouseEventState] = React.useReducer(
-    mouseEventReducer,
-    initMouseEventState
+  const [eventState, dispatchEventState] = React.useReducer(
+    eventReducer,
+    initEventState
   );
 
   return (
@@ -25,8 +21,8 @@ const ImageContextProvider = props => {
       value={{
         imageState,
         dispatchImageState,
-        mouseEventState,
-        dispatchMouseEventState
+        eventState,
+        dispatchEventState
       }}
     >
       {children}

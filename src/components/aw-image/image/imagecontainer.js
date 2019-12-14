@@ -21,23 +21,22 @@ const ImageContainer = props => {
   const classes = useStyles(props.rect);
   const {
     imageState,
-    mouseEventState,
-    dispatchMouseEventState,
+    eventState,
+    dispatchEventState,
     dispatchImageState
   } = React.useContext(ImageContext);
 
   React.useEffect(() => {
     const _onMouseMove = e =>
-      onMouseMove({ id, mouseEventState, dispatchImageState, e });
-    const _onMouseUp = e =>
-      onMouseUp({ id, mouseEventState, dispatchMouseEventState });
+      onMouseMove({ id, eventState, dispatchImageState, e });
+    const _onMouseUp = e => onMouseUp({ id, eventState, dispatchEventState });
     document.addEventListener("mousemove", _onMouseMove);
     document.addEventListener("mouseup", _onMouseUp);
     return () => {
       document.removeEventListener("mousemove", _onMouseMove);
       document.removeEventListener("mouseup", _onMouseUp);
     };
-  }, [mouseEventState, id, dispatchMouseEventState, dispatchImageState]);
+  }, [eventState, id, dispatchEventState, dispatchImageState]);
 
   return (
     <div
@@ -45,7 +44,7 @@ const ImageContainer = props => {
         onMouseDown({
           id,
           e,
-          dispatchMouseEventState,
+          dispatchEventState,
           posX: imageState.x,
           posY: imageState.y,
           action: "translate"

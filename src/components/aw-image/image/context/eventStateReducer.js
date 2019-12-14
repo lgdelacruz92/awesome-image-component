@@ -1,4 +1,4 @@
-export const mouseEventReducer = (mouseEvent, action) => {
+export const eventReducer = (event, action) => {
   if (action.type === "mouse-down") {
     return {
       status: "mouse-down",
@@ -16,7 +16,7 @@ export const mouseEventReducer = (mouseEvent, action) => {
   }
 };
 
-export const initMouseEventState = {
+export const initEventState = {
   status: "mouse-up",
   startX: 0,
   startY: 0,

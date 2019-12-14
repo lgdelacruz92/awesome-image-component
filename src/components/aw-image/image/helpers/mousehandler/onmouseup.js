@@ -1,11 +1,11 @@
 export const onMouseUp = props => {
-  const { mouseEventState, id, dispatchMouseEventState } = props;
+  const { eventState, id, dispatchEventState } = props;
   if (
-    mouseEventState.targetId === id &&
-    mouseEventState.status === "mouse-down" &&
-    mouseEventState.action === "translate"
+    eventState.targetId === id &&
+    eventState.status === "mouse-down" &&
+    eventState.action === "translate"
   ) {
-    dispatchMouseEventState({
+    dispatchEventState({
       type: "mouse-up"
     });
   }
