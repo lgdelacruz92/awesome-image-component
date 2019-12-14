@@ -3,6 +3,8 @@ import * as MUI from "@material-ui/core";
 import ImageContainer from "./imagecontainer";
 import { createContainerId } from "./helpers/createContainerId";
 import { ImageContext } from "./context";
+import ImageTopTransformer from "./imagetoptransformer";
+import ImageTranformContainer from "./imagetransformcontainer";
 
 const useStyles = MUI.makeStyles(theme => {
   return {
@@ -35,6 +37,9 @@ const Image = props => {
         h: imageState.h
       }}
     >
+      <ImageTranformContainer>
+        <ImageTopTransformer />
+      </ImageTranformContainer>
       <img
         className={classes.image}
         draggable={false}
