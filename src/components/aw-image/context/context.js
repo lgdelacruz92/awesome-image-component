@@ -1,17 +1,23 @@
 import React from "react";
 
-const imageState = {
+const initImageState = {
   x: 0,
   y: 0,
   w: 0,
   h: 0
 };
-const ImageContext = React.createContext(imageState);
+const ImageContext = React.createContext(initImageState);
+
+let reducer = (state, dispatch) => {};
 
 const ImageContextProvider = props => {
   const { children } = props;
+  const [imageState, dispatch] = React.useReducer(reducer, initImageState);
+
   return (
-    <ImageContext.Provider value={imageState}>{children}</ImageContext.Provider>
+    <ImageContext.Provider value={{ imageState, dispatch }}>
+      {children}
+    </ImageContext.Provider>
   );
 };
 
