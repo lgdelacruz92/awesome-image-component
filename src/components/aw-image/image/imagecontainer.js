@@ -1,11 +1,11 @@
 import React from "react";
 import * as MUI from "@material-ui/core";
-import { ImageContext } from "./context";
+import { ImageContext } from "../context";
 import { translate } from "components/utils";
 
 const useStyles = MUI.makeStyles(theme => {
   return {
-    awImageContainer: {
+    imageContainer: {
       position: "absolute",
       transform: props => translate(props.x, props.y),
       width: props => props.w,
@@ -15,12 +15,10 @@ const useStyles = MUI.makeStyles(theme => {
   };
 });
 
-const AWImageContainer = props => {
+const ImageContainer = props => {
   const { children, id } = props;
   const classes = useStyles(props.rect);
   const { dispatchMouseEventState } = React.useContext(ImageContext);
-
-  console.log("Rendering AWImage Container");
 
   return (
     <div
@@ -35,11 +33,11 @@ const AWImageContainer = props => {
         }
       }}
       id={id}
-      className={classes.awImageContainer}
+      className={classes.imageContainer}
     >
       {children}
     </div>
   );
 };
 
-export default AWImageContainer;
+export default ImageContainer;

@@ -1,5 +1,7 @@
 import React from "react";
 import * as MUI from "@material-ui/core";
+import ImageContainer from "./imagecontainer";
+import { createContainerId } from "../helpers/createContainerId";
 
 const useStyles = MUI.makeStyles(theme => {
   return {
@@ -12,9 +14,19 @@ const useStyles = MUI.makeStyles(theme => {
 
 const Image = props => {
   const classes = useStyles();
-  const { src, alt } = props;
+  const { image } = props;
   return (
-    <img className={classes.image} draggable={false} src={src} alt={alt} />
+    <ImageContainer
+      id={createContainerId(image.id)}
+      rect={{ x: image.x, y: image.y, w: image.w, h: image.h }}
+    >
+      <img
+        className={classes.image}
+        draggable={false}
+        src={image.src}
+        alt={image.alt}
+      />
+    </ImageContainer>
   );
 };
 
