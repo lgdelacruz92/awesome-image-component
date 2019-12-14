@@ -26,8 +26,6 @@ const ImageContainer = props => {
     dispatchImageState
   } = React.useContext(ImageContext);
 
-  console.log("Rendering, image container");
-
   React.useEffect(() => {
     const _onMouseMove = e =>
       onMouseMove({ id, mouseEventState, dispatchImageState, e });
