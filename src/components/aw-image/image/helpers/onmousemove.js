@@ -1,9 +1,9 @@
 export const onMouseMove = props => {
-  const { mouseEventState, id } = props;
+  const { mouseEventState, id, dispatchImageState } = props;
   if (
     mouseEventState.targetId === id &&
     mouseEventState.status === "mouse-down"
   ) {
-    console.log("moving image", id);
+    // update image state here
   }
 };

@@ -16,7 +16,6 @@ const useStyles = MUI.makeStyles(theme => {
 const Image = props => {
   const classes = useStyles();
   const { image } = props;
-  const { dispatchMouseEventState } = React.useContext(ImageContext);
 
   return (
     <ImageContainer
