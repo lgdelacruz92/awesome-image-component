@@ -1,6 +1,6 @@
 import React from "react";
 import * as MUI from "@material-ui/core";
-import { ImageContext } from "../context";
+import { ImageContext } from "./context";
 import { translate } from "components/utils";
 import { onMouseUp, onMouseMove, onMouseDown } from "./helpers";
 

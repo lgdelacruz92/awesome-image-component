@@ -1,5 +1,5 @@
 import React from "react";
-import { ImageContextProvider } from "./context";
+import { ImageContextProvider } from "./image/context";
 import Image from "./image";
 
 const AWImage = props => {

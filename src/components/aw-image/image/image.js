@@ -1,8 +1,8 @@
 import React from "react";
 import * as MUI from "@material-ui/core";
 import ImageContainer from "./imagecontainer";
-import { createContainerId } from "../helpers/createContainerId";
-import { ImageContext } from "../context";
+import { createContainerId } from "./helpers/createContainerId";
+import { ImageContext } from "./context";
 
 const useStyles = MUI.makeStyles(theme => {
   return {
@@ -16,6 +16,11 @@ const useStyles = MUI.makeStyles(theme => {
 const Image = props => {
   const classes = useStyles();
   const { image } = props;
+  const { dispatchImageState } = React.useContext(ImageContext);
+
+  React.useEffect(() => {
+    dispatchImageState(image);
+  }, [dispatchImageState, image]);
 
   return (
     <ImageContainer
