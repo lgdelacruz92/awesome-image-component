@@ -20,6 +20,7 @@ const ImageContainer = props => {
   const { children, id } = props;
   const classes = useStyles(props.rect);
   const {
+    imageState,
     mouseEventState,
     dispatchMouseEventState,
     dispatchImageState
@@ -29,7 +30,7 @@ const ImageContainer = props => {
 
   React.useEffect(() => {
     const _onMouseMove = e =>
-      onMouseMove({ id, mouseEventState, dispatchImageState });
+      onMouseMove({ id, mouseEventState, dispatchImageState, e });
     const _onMouseUp = e =>
       onMouseUp({ id, mouseEventState, dispatchMouseEventState });
     document.addEventListener("mousemove", _onMouseMove);
@@ -42,7 +43,15 @@ const ImageContainer = props => {
 
   return (
     <div
-      onMouseDown={e => onMouseDown({ id, e, dispatchMouseEventState })}
+      onMouseDown={e =>
+        onMouseDown({
+          id,
+          e,
+          dispatchMouseEventState,
+          posX: imageState.x,
+          posY: imageState.y
+        })
+      }
       id={id}
       className={classes.imageContainer}
     >

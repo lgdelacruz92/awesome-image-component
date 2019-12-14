@@ -19,7 +19,10 @@ const Image = props => {
   const { imageState, dispatchImageState } = React.useContext(ImageContext);
 
   React.useEffect(() => {
-    dispatchImageState(image);
+    dispatchImageState({
+      type: "replace",
+      image: image
+    });
   }, [dispatchImageState, image]);
 
   return (

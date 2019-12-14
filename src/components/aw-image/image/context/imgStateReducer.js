@@ -6,5 +6,14 @@ export const initImageState = {
 };
 
 export const imgStateReducer = (imageState, action) => {
-  return { ...action };
+  if (action.type === "move") {
+    return {
+      ...imageState,
+      x: action.x,
+      y: action.y
+    };
+  } else if (action.type === "replace") {
+    return { ...action.image };
+  }
+  return imageState;
 };
