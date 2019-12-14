@@ -5,11 +5,12 @@ const useStyles = MUI.makeStyles(theme => {
   return {
     container: {
       position: "relative",
-      top: 50,
+      top: 200,
       left: 50,
       border: "1px solid lightcoral",
       width: 500,
-      height: 500
+      height: 500,
+      overflow: "hidden"
     }
   };
 });
