@@ -2,7 +2,7 @@ import React from "react";
 import * as MUI from "@material-ui/core";
 import { ImageContext } from "../context";
 import { translate } from "components/utils";
-import { onMouseUp, onMouseMove } from "./helpers";
+import { onMouseUp, onMouseMove, onMouseDown } from "./helpers";
 
 const useStyles = MUI.makeStyles(theme => {
   return {
@@ -39,16 +39,7 @@ const ImageContainer = props => {
 
   return (
     <div
-      onMouseDown={e => {
-        if (e.currentTarget.id === id) {
-          dispatchMouseEventState({
-            type: "mouse-down",
-            x: e.clientX,
-            y: e.clientY,
-            targetId: id
-          });
-        }
-      }}
+      onMouseDown={e => onMouseDown({ id, e, dispatchMouseEventState })}
       id={id}
       className={classes.imageContainer}
     >
