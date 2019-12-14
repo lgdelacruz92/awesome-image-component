@@ -1,4 +1,10 @@
-import { isTargetSelf, isEventTranslate, calVec, addVec } from "./utils";
+import {
+  isTargetSelf,
+  isEventTranslate,
+  isEventTransform,
+  calVec,
+  addVec
+} from "./utils";
 
 export const onMouseMove = props => {
   const { eventState, id, dispatchImageState, e } = props;
@@ -15,5 +21,7 @@ export const onMouseMove = props => {
       x: newPos.x,
       y: newPos.y
     });
+  } else if (isTargetSelf(eventState, id) && isEventTransform(eventState)) {
+    console.log("Transform");
   }
 };

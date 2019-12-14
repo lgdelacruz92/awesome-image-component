@@ -13,3 +13,7 @@ export const calVec = (startPos, endPos) => {
 export const addVec = (v1, v2) => {
   return { x: v1.x + v2.x, y: v1.y + v2.y };
 };
+
+export const isEventTransform = event => {
+  return event.status === "mouse-down" && event.action === "transform";
+};

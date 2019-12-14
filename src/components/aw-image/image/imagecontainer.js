@@ -41,7 +41,7 @@ const ImageContainer = props => {
 
   return (
     <div
-      onMouseDown={e =>
+      onMouseDown={e => {
         onMouseDown({
           id,
           e,
@@ -49,8 +49,9 @@ const ImageContainer = props => {
           posX: imageState.x,
           posY: imageState.y,
           action: "translate"
-        })
-      }
+        });
+        e.stopPropagation();
+      }}
       id={id}
       className={classes.imageContainer}
     >
