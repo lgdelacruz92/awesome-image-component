@@ -16,9 +16,8 @@ const useStyles = MUI.makeStyles(theme => {
 });
 
 const AWImageContainer = props => {
-  const imageContext = React.useContext(ImageContext);
-  const classes = useStyles(imageContext);
   const { children } = props;
+  const classes = useStyles(props.rect);
   return <div className={classes.awImageContainer}>{children}</div>;
 };
 

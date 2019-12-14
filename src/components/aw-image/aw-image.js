@@ -7,7 +7,9 @@ const AWImage = props => {
   const { image } = props;
   return (
     <ImageContextProvider>
-      <AWImageContainer>
+      <AWImageContainer
+        rect={{ x: image.x, y: image.y, w: image.w, h: image.h }}
+      >
         <Image src={image.src} alt={image.alt} />
       </AWImageContainer>
     </ImageContextProvider>
