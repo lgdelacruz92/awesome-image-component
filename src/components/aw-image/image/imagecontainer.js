@@ -18,14 +18,13 @@ const useStyles = MUI.makeStyles(theme => {
 });
 
 const ImageContainer = props => {
-  const { children, id } = props;
-  const classes = useStyles(props.rect);
   const {
     imageState,
     eventState,
     dispatchEventState,
     dispatchImageState
   } = React.useContext(ImageContext);
+  const { id } = props;
 
   React.useEffect(() => {
     const _onMouseMove = e =>
@@ -38,6 +37,9 @@ const ImageContainer = props => {
       document.removeEventListener("mouseup", _onMouseUp);
     };
   }, [eventState, id, dispatchEventState, dispatchImageState]);
+
+  const { children } = props;
+  const classes = useStyles(props.rect);
 
   return (
     <div

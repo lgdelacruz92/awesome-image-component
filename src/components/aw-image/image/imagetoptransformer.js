@@ -29,11 +29,6 @@ const ImageTopTransformer = props => {
     dispatchEventState
   } = React.useContext(ImageContext);
   const { id } = props;
-  const WIDTH = 60;
-  const classes = useStyles({
-    x: (imageState.w - WIDTH) / 2,
-    w: WIDTH
-  });
 
   React.useEffect(() => {
     const _onMouseMove = e =>
@@ -46,6 +41,12 @@ const ImageTopTransformer = props => {
       document.removeEventListener("mouseup", _onMouseUp);
     };
   }, [eventState, id, dispatchEventState, dispatchImageState]);
+
+  const WIDTH = 60;
+  const classes = useStyles({
+    x: (imageState.w - WIDTH) / 2,
+    w: WIDTH
+  });
 
   return (
     <div
