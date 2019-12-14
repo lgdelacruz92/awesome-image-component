@@ -6,6 +6,7 @@ import { createContainerId } from "./helpers/createContainerId";
 
 const AWImage = props => {
   const { image } = props;
+  console.log("Rendering AWImage");
 
   return (
     <ImageContextProvider>
