@@ -6,6 +6,10 @@ export const mouseEventReducer = (mouseEvent, action) => {
       startY: action.y,
       targetId: action.targetId
     };
+  } else if (action.type === "mouse-up") {
+    return {
+      status: "mouse-up"
+    };
   }
 };
 

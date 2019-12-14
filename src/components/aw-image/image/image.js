@@ -2,6 +2,7 @@ import React from "react";
 import * as MUI from "@material-ui/core";
 import ImageContainer from "./imagecontainer";
 import { createContainerId } from "../helpers/createContainerId";
+import { ImageContext } from "../context";
 
 const useStyles = MUI.makeStyles(theme => {
   return {
@@ -15,6 +16,8 @@ const useStyles = MUI.makeStyles(theme => {
 const Image = props => {
   const classes = useStyles();
   const { image } = props;
+  const { dispatchMouseEventState } = React.useContext(ImageContext);
+
   return (
     <ImageContainer
       id={createContainerId(image.id)}
