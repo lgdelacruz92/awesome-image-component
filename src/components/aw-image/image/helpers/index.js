@@ -1,4 +1,4 @@
-import { onMouseUp } from "./onmouseup";
-import { onMouseMove } from "./onmousemove";
-import { onMouseDown } from "./onmousedown";
+import { onMouseUp } from "./mousehandler/onmouseup";
+import { onMouseMove } from "./mousehandler/onmousemove";
+import { onMouseDown } from "./mousehandler/onmousedown";
 export { onMouseUp, onMouseMove, onMouseDown };
