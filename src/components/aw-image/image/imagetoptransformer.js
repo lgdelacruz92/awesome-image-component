@@ -18,10 +18,10 @@ const useStyles = MUI.makeStyles(theme => {
 
 const ImageTopTransformer = props => {
   const { imageState } = React.useContext(ImageContext);
-  const w = 60;
+  const WIDTH = 60;
   const classes = useStyles({
-    x: (imageState.w - w) / 2,
-    w: w
+    x: (imageState.w - WIDTH) / 2,
+    w: WIDTH
   });
   return <div className={classes.imageTopTransformer}></div>;
 };
