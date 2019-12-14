@@ -16,10 +16,31 @@ const useStyles = MUI.makeStyles(theme => {
 });
 
 const AWImageContainer = props => {
-  const { children } = props;
+  const { children, id } = props;
   const classes = useStyles(props.rect);
-  const { imageState, dispatch } = React.useContext(ImageContext);
-  return <div className={classes.awImageContainer}>{children}</div>;
+  const { mouseEventState, dispatchMouseEventState } = React.useContext(
+    ImageContext
+  );
+
+  console.log("mouse event", mouseEventState);
+  return (
+    <div
+      onMouseDown={e => {
+        if (e.currentTarget.id === id) {
+          dispatchMouseEventState({
+            type: "mouse-down",
+            x: e.clientX,
+            y: e.clientY,
+            targetId: id
+          });
+        }
+      }}
+      id={id}
+      className={classes.awImageContainer}
+    >
+      {children}
+    </div>
+  );
 };
 
 export default AWImageContainer;
