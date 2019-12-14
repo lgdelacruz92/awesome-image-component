@@ -1,6 +1,6 @@
 import React from "react";
 import AWImageContainer from "./aw-image-container";
-import { ImageContextProvider, ImageContext } from "./context";
+import { ImageContextProvider } from "./context";
 import Image from "./image";
 
 const AWImage = props => {

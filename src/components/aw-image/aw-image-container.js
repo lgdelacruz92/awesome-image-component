@@ -19,7 +19,6 @@ const AWImageContainer = props => {
   const { children } = props;
   const classes = useStyles(props.rect);
   const { imageState, dispatch } = React.useContext(ImageContext);
-  console.log("image state", imageState);
   return <div className={classes.awImageContainer}>{children}</div>;
 };
 

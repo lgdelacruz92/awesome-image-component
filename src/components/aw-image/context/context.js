@@ -13,7 +13,6 @@ let reducer = (state, dispatch) => {};
 const ImageContextProvider = props => {
   const { children } = props;
   const [imageState, dispatch] = React.useReducer(reducer, initImageState);
-  console.log(imageState);
 
   return (
     <ImageContext.Provider value={{ imageState, dispatch }}>
