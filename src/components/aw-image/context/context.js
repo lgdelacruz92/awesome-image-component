@@ -1,21 +1,34 @@
 import React from "react";
+import {
+  initMouseEventState,
+  mouseEventReducer
+} from "./mouseEventStateReducer";
 
-const initImageState = {
-  x: 0,
-  y: 0,
-  w: 0,
-  h: 0
-};
+import { initImageState, imgStateReducer } from "./imgStateReducer";
+
 const ImageContext = React.createContext(initImageState);
-
-let reducer = (state, dispatch) => {};
 
 const ImageContextProvider = props => {
   const { children } = props;
-  const [imageState, dispatch] = React.useReducer(reducer, initImageState);
+  const [imageState, dispatchImageState] = React.useReducer(
+    imgStateReducer,
+    initImageState
+  );
+
+  const [mouseEventState, dispatchMouseEventState] = React.useReducer(
+    mouseEventReducer,
+    initMouseEventState
+  );
 
   return (
-    <ImageContext.Provider value={{ imageState, dispatch }}>
+    <ImageContext.Provider
+      value={{
+        imageState,
+        dispatchImageState,
+        mouseEventState,
+        dispatchMouseEventState
+      }}
+    >
       {children}
     </ImageContext.Provider>
   );
