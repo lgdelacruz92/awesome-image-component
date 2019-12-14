@@ -11,7 +11,8 @@ const useStyles = MUI.makeStyles(theme => {
       transform: props => translate(props.x, props.y),
       width: props => props.w,
       height: props => props.h,
-      objectFit: "cover"
+      objectFit: "cover",
+      border: "2px solid lightblue"
     }
   };
 });
