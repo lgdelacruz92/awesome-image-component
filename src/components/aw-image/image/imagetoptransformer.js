@@ -1,7 +1,8 @@
 import React from "react";
 import * as MUI from "@material-ui/core";
 import { ImageContext } from "./context";
-import { onMouseDown, onMouseMove, onMouseUp } from "./mousehandler";
+import { onMouseDown } from "./mousehandler";
+import ImageComponentEventListener from "./imagecomponenteventlistener";
 
 const useStyles = MUI.makeStyles(theme => {
   return {
@@ -22,26 +23,8 @@ const useStyles = MUI.makeStyles(theme => {
 });
 
 const ImageTopTransformer = props => {
-  const {
-    imageState,
-    eventState,
-    dispatchImageState,
-    dispatchEventState
-  } = React.useContext(ImageContext);
+  const { imageState, dispatchEventState } = React.useContext(ImageContext);
   const { id } = props;
-
-  React.useEffect(() => {
-    const _onMouseMove = e =>
-      onMouseMove({ id, eventState, dispatchImageState, e });
-    const _onMouseUp = e => onMouseUp({ id, eventState, dispatchEventState });
-    document.addEventListener("mousemove", _onMouseMove);
-    document.addEventListener("mouseup", _onMouseUp);
-    return () => {
-      document.removeEventListener("mousemove", _onMouseMove);
-      document.removeEventListener("mouseup", _onMouseUp);
-    };
-  }, [eventState, id, dispatchEventState, dispatchImageState]);
-
   const WIDTH = 60;
   const classes = useStyles({
     x: (imageState.w - WIDTH) / 2,
@@ -49,7 +32,7 @@ const ImageTopTransformer = props => {
   });
 
   return (
-    <div
+    <ImageComponentEventListener
       onMouseDown={e => {
         onMouseDown({
           id,
@@ -63,7 +46,7 @@ const ImageTopTransformer = props => {
       }}
       id={id}
       className={classes.imageTopTransformer}
-    ></div>
+    ></ImageComponentEventListener>
   );
 };
 
