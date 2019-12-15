@@ -3,8 +3,7 @@ import * as MUI from "@material-ui/core";
 import { translate } from "components/utils";
 import ComponentListener from "components/componentlistener";
 import { ImageContext } from "../context";
-import { makeVec, addVec } from "../utils";
-import { onMouseDown } from "./eventhandlers";
+import { onMouseDown, onMouseMove, onMouseUp } from "./eventhandlers";
 
 const useStyles = MUI.makeStyles(theme => {
   return {
@@ -27,30 +26,8 @@ const ImageContainer = props => {
   return (
     <ComponentListener
       onMouseDown={props => onMouseDown({ ...props, imageState })}
-      onMouseMove={({ e, id, eventState }) => {
-        if (eventState.targetId === id && eventState.status === "mouse-down") {
-          const dir = makeVec(
-            e.clientX,
-            e.clientY,
-            eventState.mouseStartX,
-            eventState.mouseStartY
-          );
-          const moveVec = addVec(
-            { x: eventState.imageStartX, y: eventState.imageStartY },
-            dir
-          );
-          dispatchImageState({
-            type: "move",
-            x: moveVec.x,
-            y: moveVec.y
-          });
-        }
-      }}
-      onMouseUp={({ id, eventState, setEventState }) => {
-        if (eventState.targetId === id && eventState.status === "mouse-down") {
-          setEventState({ status: "mouse-up" });
-        }
-      }}
+      onMouseMove={props => onMouseMove({ ...props, dispatchImageState })}
+      onMouseUp={onMouseUp}
       id={imageState.id}
       className={classes.imageContainer}
     >
