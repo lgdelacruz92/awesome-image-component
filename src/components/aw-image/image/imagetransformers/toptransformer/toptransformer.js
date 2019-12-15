@@ -26,12 +26,7 @@ const TopTransformer = props => {
     x: (imageState.w - WIDTH) / 2,
     w: WIDTH
   });
-  return (
-    <ComponentListener
-      onMouseDown={props => props.e.stopPropagation()}
-      className={classes.topTransformer}
-    />
-  );
+  return <ComponentListener className={classes.topTransformer} />;
 };
 
 export default TopTransformer;
