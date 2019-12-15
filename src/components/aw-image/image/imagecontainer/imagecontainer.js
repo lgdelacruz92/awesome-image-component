@@ -4,6 +4,7 @@ import { translate } from "components/utils";
 import ComponentListener from "components/componentlistener";
 import { ImageContext } from "../context";
 import { makeVec, addVec } from "../utils";
+import { onMouseDown } from "./eventhandlers";
 
 const useStyles = MUI.makeStyles(theme => {
   return {
@@ -25,19 +26,7 @@ const ImageContainer = props => {
 
   return (
     <ComponentListener
-      onMouseDown={({ e, id, setEventState }) => {
-        if (e.currentTarget.id === id) {
-          setEventState({
-            status: "mouse-down",
-            mouseStartX: e.clientX,
-            mouseStartY: e.clientY,
-            targetId: id,
-            imageStartX: imageState.x,
-            imageStartY: imageState.y
-          });
-        }
-        e.stopPropagation();
-      }}
+      onMouseDown={props => onMouseDown({ ...props, imageState })}
       onMouseMove={({ e, id, eventState }) => {
         if (eventState.targetId === id && eventState.status === "mouse-down") {
           const dir = makeVec(
