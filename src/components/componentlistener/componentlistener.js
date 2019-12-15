@@ -1,20 +1,19 @@
 import React from "react";
-import { ImageContext } from "./context";
 
-const ImageCompoenentEventListener = props => {
-  const { eventState } = React.useContext(ImageContext);
+const ComponentListener = props => {
+  const [eventState, setEventState] = React.useState({ status: "mouse-up" });
   const {
     children,
+    className,
+    id,
     onMouseDown,
     onMouseMove,
-    onMouseUp,
-    className,
-    id
+    onMouseUp
   } = props;
 
   React.useEffect(() => {
-    const _onMouseMove = e => onMouseMove(e, id, eventState);
-    const _onMouseUp = e => onMouseUp(e, id, eventState);
+    const _onMouseMove = e => onMouseMove({ e, id, eventState, setEventState });
+    const _onMouseUp = e => onMouseUp({ e, id, eventState, setEventState });
     document.addEventListener("mousemove", _onMouseMove);
     document.addEventListener("mouseup", _onMouseUp);
     return () => {
@@ -24,10 +23,14 @@ const ImageCompoenentEventListener = props => {
   }, [eventState, id, onMouseMove, onMouseUp]);
 
   return (
-    <div onMouseDown={onMouseDown} id={id} className={className}>
+    <div
+      onMouseDown={e => onMouseDown({ e, id, eventState, setEventState })}
+      id={id}
+      className={className}
+    >
       {children}
     </div>
   );
 };
 
-export default ImageCompoenentEventListener;
+export default ComponentListener;

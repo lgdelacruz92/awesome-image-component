@@ -1,8 +1,7 @@
 import React from "react";
 import * as MUI from "@material-ui/core";
-import { ImageContext } from "./context";
 import { translate } from "components/utils";
-import ImageComponentEventListener from "./imagecomponenteventlistener";
+import ComponentListener from "components/componentlistener";
 
 const useStyles = MUI.makeStyles(theme => {
   return {
@@ -18,43 +17,35 @@ const useStyles = MUI.makeStyles(theme => {
 });
 
 const ImageContainer = props => {
-  const { imageState, dispatchEventState } = React.useContext(ImageContext);
   const { id } = props;
 
   const { children, rect } = props;
   const classes = useStyles(rect);
 
   return (
-    <ImageComponentEventListener
-      onMouseDown={e => {
+    <ComponentListener
+      onMouseDown={({ e, id, setEventState }) => {
         if (e.currentTarget.id === id) {
-          dispatchEventState({
-            type: "mouse-down",
-            x: e.clientX,
-            y: e.clientY,
-            targetId: id,
-            posX: imageState.x,
-            posY: imageState.y,
-            action: "translate"
+          setEventState({
+            status: "mouse-down",
+            startX: e.clientX,
+            startY: e.clientY,
+            targetId: id
           });
         }
         e.stopPropagation();
       }}
-      onMouseMove={(e, id, eventState) => {
-        if (id === eventState.targetId && eventState.status === "mouse-down") {
-          console.log("moving", id);
-        }
-      }}
-      onMouseUp={(e, id, eventState) => {
-        if (id === eventState.targetId && eventState.status === "mouse-down") {
-          dispatchEventState({ type: "mouse-up" });
+      onMouseMove={({ id, eventState }) => {}}
+      onMouseUp={({ id, eventState, setEventState }) => {
+        if (eventState.targetId === id && eventState.status === "mouse-down") {
+          setEventState({ status: "mouse-up" });
         }
       }}
       id={id}
       className={classes.imageContainer}
     >
       {children}
-    </ImageComponentEventListener>
+    </ComponentListener>
   );
 };
 
