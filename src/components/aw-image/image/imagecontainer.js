@@ -2,7 +2,6 @@ import React from "react";
 import * as MUI from "@material-ui/core";
 import { ImageContext } from "./context";
 import { translate } from "components/utils";
-import { onMouseDown } from "./mousehandler";
 import ImageComponentEventListener from "./imagecomponenteventlistener";
 
 const useStyles = MUI.makeStyles(theme => {
@@ -28,15 +27,28 @@ const ImageContainer = props => {
   return (
     <ImageComponentEventListener
       onMouseDown={e => {
-        onMouseDown({
-          id,
-          e,
-          dispatchEventState,
-          posX: imageState.x,
-          posY: imageState.y,
-          action: "translate"
-        });
+        if (e.currentTarget.id === id) {
+          dispatchEventState({
+            type: "mouse-down",
+            x: e.clientX,
+            y: e.clientY,
+            targetId: id,
+            posX: imageState.x,
+            posY: imageState.y,
+            action: "translate"
+          });
+        }
         e.stopPropagation();
+      }}
+      onMouseMove={(e, id, eventState) => {
+        if (id === eventState.targetId && eventState.status === "mouse-down") {
+          console.log("moving", id);
+        }
+      }}
+      onMouseUp={(e, id, eventState) => {
+        if (id === eventState.targetId && eventState.status === "mouse-down") {
+          dispatchEventState({ type: "mouse-up" });
+        }
       }}
       id={id}
       className={classes.imageContainer}
