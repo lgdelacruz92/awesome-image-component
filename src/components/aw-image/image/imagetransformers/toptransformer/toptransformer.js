@@ -1,7 +1,7 @@
 import React from "react";
 import * as MUI from "@material-ui/core";
 import { ImageContext } from "components/aw-image/image/context";
-import { onMouseDown, onMouseMove, onMouseUp } from "./eventhandlers";
+import { onMouseMove } from "./eventhandlers";
 import Transformer from "../transformer";
 
 const useStyles = MUI.makeStyles(theme => {
@@ -28,9 +28,7 @@ const TopTransformer = props => {
   return (
     <Transformer
       id={id}
-      onMouseDown={props => onMouseDown({ ...props, imageState })}
       onMouseMove={props => onMouseMove({ ...props, dispatchImageState })}
-      onMouseUp={onMouseUp}
       className={classes.topTransformer}
     />
   );
