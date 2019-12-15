@@ -14,6 +14,14 @@ export const imgStateReducer = (imageState, action) => {
     };
   } else if (action.type === "replace") {
     return { ...action.image };
+  } else if (action.type === "update") {
+    imageState.x = action.x || imageState.x;
+    imageState.y = action.y || imageState.y;
+    imageState.w = action.w || imageState.w;
+    imageState.h = action.h || imageState.h;
+    imageState.src = action.src || imageState.src;
+    imageState.alt = action.alt || imageState.alt;
+    return { ...imageState };
   }
   return imageState;
 };
