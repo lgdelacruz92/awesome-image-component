@@ -2,6 +2,7 @@ import React from "react";
 import * as MUI from "@material-ui/core";
 import { ImageContext } from "components/aw-image/image/context";
 import Transformer from "../transformer";
+import { onMouseMove } from "./onMouseMove";
 
 const useStyles = MUI.makeStyles(theme => {
   return {
@@ -24,7 +25,13 @@ const LeftTransformer = props => {
     y: (imageState.h - HEIGHT) / 2,
     h: HEIGHT
   });
-  return <Transformer id={id} className={classes.leftTransformer} />;
+  return (
+    <Transformer
+      id={id}
+      onMouseMove={props => onMouseMove({ ...props, dispatchImageState })}
+      className={classes.leftTransformer}
+    />
+  );
 };
 
 export default LeftTransformer;

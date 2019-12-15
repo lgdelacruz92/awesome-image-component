@@ -1,9 +1,10 @@
 export const calcNewX = props => {
   const { eventState, clientX, MINWIDTH } = props;
-  const newX = eventState.origW + (eventState.startX - clientX);
-  if (newX >= MINWIDTH) {
-    return newX;
+  const newX = eventState.origX + (clientX - eventState.startX);
+  const maxX = eventState.origX + eventState.origW - MINWIDTH;
+  if (newX > maxX) {
+    return maxX;
   } else {
-    return MINWIDTH;
+    return newX;
   }
 };

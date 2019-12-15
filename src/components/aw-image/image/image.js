@@ -35,6 +35,11 @@ const Image = props => {
         <LeftTransformer />
       </ImageTransformers>
       <img
+        style={{ objectFit: "cover" }}
+        onMouseDown={e => e.preventDefault()}
+        onMouseMove={e => e.preventDefault()}
+        onMouseUp={e => e.preventDefault()}
+        onClick={e => e.preventDefault()}
         className={classes.image}
         draggable={false}
         src={imageState.src}
