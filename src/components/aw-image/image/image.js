@@ -3,6 +3,7 @@ import * as MUI from "@material-ui/core";
 import ImageTranslator from "./imagetranslator";
 import ImageTransformers from "./imagetransformers";
 import TopTransformer from "./imagetransformers/toptransformer";
+import LeftTransformer from "./imagetransformers/lefttransformer";
 import { ImageContext } from "./context";
 
 const useStyles = MUI.makeStyles(theme => {
@@ -31,6 +32,7 @@ const Image = props => {
     <ImageTranslator>
       <ImageTransformers>
         <TopTransformer />
+        <LeftTransformer />
       </ImageTransformers>
       <img
         className={classes.image}

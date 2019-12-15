@@ -8,7 +8,8 @@ const useStyles = MUI.makeStyles(theme => {
       top: 0,
       left: 0,
       width: 0,
-      height: 0
+      height: 0,
+      background: "red"
     }
   };
 });
