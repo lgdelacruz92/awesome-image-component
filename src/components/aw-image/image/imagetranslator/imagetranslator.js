@@ -25,6 +25,7 @@ const ImageTranslator = props => {
 
   return (
     <ComponentListener
+      onClick={props => props.e.stopPropagation()}
       onMouseDown={props => onMouseDown({ ...props, imageState })}
       onMouseMove={props => onMouseMove({ ...props, dispatchImageState })}
       onMouseUp={onMouseUp}

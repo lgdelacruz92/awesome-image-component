@@ -34,7 +34,7 @@ export const onMouseMove = ({ e, id, eventState, dispatchImageState }) => {
   }
 };
 
-export const onMouseUp = ({ id, eventState, setEventState }) => {
+export const onMouseUp = ({ e, id, eventState, setEventState }) => {
   if (eventState.targetId === id && eventState.status === "mouse-down") {
     setEventState({ status: "mouse-up" });
   }

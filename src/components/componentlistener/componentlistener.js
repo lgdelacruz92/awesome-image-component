@@ -6,6 +6,7 @@ const ComponentListener = props => {
     children,
     className,
     id,
+    onClick,
     onMouseDown,
     onMouseMove,
     onMouseUp
@@ -24,6 +25,7 @@ const ComponentListener = props => {
 
   return (
     <div
+      onClick={e => onClick({ e, id, eventState, setEventState })}
       onMouseDown={e => onMouseDown({ e, id, eventState, setEventState })}
       id={id}
       className={className}

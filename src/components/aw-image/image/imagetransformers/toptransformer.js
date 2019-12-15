@@ -25,7 +25,16 @@ const TopTransformer = props => {
     x: (imageState.w - WIDTH) / 2,
     w: WIDTH
   });
-  return <div className={classes.topTransformer} />;
+  return (
+    <div
+      onClick={e => {
+        console.log("transformer clicked");
+        e.stopPropagation();
+      }}
+      onMouseDown={e => e.stopPropagation()}
+      className={classes.topTransformer}
+    />
+  );
 };
 
 export default TopTransformer;

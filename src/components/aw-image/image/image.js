@@ -9,7 +9,8 @@ const useStyles = MUI.makeStyles(theme => {
   return {
     image: {
       width: "100%",
-      height: "100%"
+      height: "100%",
+      userSelect: "none"
     }
   };
 });
