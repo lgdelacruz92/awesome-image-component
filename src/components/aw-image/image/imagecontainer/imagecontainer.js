@@ -2,8 +2,8 @@ import React from "react";
 import * as MUI from "@material-ui/core";
 import { translate } from "components/utils";
 import ComponentListener from "components/componentlistener";
-import { ImageContext } from "./context";
-import { makeVec, addVec } from "./utils";
+import { ImageContext } from "../context";
+import { makeVec, addVec } from "../utils";
 
 const useStyles = MUI.makeStyles(theme => {
   return {
@@ -19,10 +19,9 @@ const useStyles = MUI.makeStyles(theme => {
 });
 
 const ImageContainer = props => {
-  const { id } = props;
-  const { children, rect } = props;
-  const classes = useStyles(rect);
+  const { children } = props;
   const { imageState, dispatchImageState } = React.useContext(ImageContext);
+  const classes = useStyles(imageState);
 
   return (
     <ComponentListener
@@ -63,7 +62,7 @@ const ImageContainer = props => {
           setEventState({ status: "mouse-up" });
         }
       }}
-      id={id}
+      id={imageState.id}
       className={classes.imageContainer}
     >
       {children}

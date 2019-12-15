@@ -1,7 +1,6 @@
 import React from "react";
 import * as MUI from "@material-ui/core";
 import ImageContainer from "./imagecontainer";
-import { createContainerId } from "./helpers/createContainerId";
 import { ImageContext } from "./context";
 
 const useStyles = MUI.makeStyles(theme => {
@@ -26,15 +25,7 @@ const Image = props => {
   }, [dispatchImageState, image]);
 
   return (
-    <ImageContainer
-      id={createContainerId(imageState.id)}
-      rect={{
-        x: imageState.x,
-        y: imageState.y,
-        w: imageState.w,
-        h: imageState.h
-      }}
-    >
+    <ImageContainer>
       <img
         className={classes.image}
         draggable={false}
