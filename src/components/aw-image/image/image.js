@@ -2,7 +2,7 @@ import React from "react";
 import * as MUI from "@material-ui/core";
 import ImageTranslator from "./imagetranslator";
 import ImageTransformers from "./imagetransformers";
-import { TopTransformer } from "./imagetransformers";
+import TopTransformer from "./imagetransformers/toptransformer";
 import { ImageContext } from "./context";
 
 const useStyles = MUI.makeStyles(theme => {
