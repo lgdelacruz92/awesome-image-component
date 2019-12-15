@@ -1,7 +1,7 @@
 import React from "react";
 import * as MUI from "@material-ui/core";
 import { ImageContext } from "components/aw-image/image/context";
-import { onMouseMove } from "./eventhandlers";
+import { onMouseMove } from "./onMouseMove";
 import Transformer from "../transformer";
 
 const useStyles = MUI.makeStyles(theme => {
