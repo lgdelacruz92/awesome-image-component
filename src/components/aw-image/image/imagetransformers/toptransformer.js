@@ -28,10 +28,6 @@ const TopTransformer = props => {
   });
   return (
     <ComponentListener
-      onClick={props => {
-        console.log("transformer clicked");
-        props.e.stopPropagation();
-      }}
       onMouseDown={props => props.e.stopPropagation()}
       className={classes.topTransformer}
     />

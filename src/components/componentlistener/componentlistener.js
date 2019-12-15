@@ -32,8 +32,14 @@ const ComponentListener = props => {
 
   return (
     <div
-      onClick={e => onClick({ e, id, eventState, setEventState })}
-      onMouseDown={e => onMouseDown({ e, id, eventState, setEventState })}
+      onClick={e =>
+        onClick ? onClick({ e, id, eventState, setEventState }) : () => {}
+      }
+      onMouseDown={e =>
+        onMouseDown
+          ? onMouseDown({ e, id, eventState, setEventState })
+          : () => {}
+      }
       id={id}
       className={className}
     >
