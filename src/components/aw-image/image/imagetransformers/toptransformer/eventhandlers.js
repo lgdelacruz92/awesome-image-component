@@ -7,10 +7,12 @@ export const onMouseDown = props => {
     setEventState({
       status: "mouse-down",
       targetId: id,
-      startX: imageState.x,
-      startY: imageState.y,
-      startW: imageState.w,
-      startH: imageState.h
+      startX: e.clientX,
+      startY: e.clientY,
+      origX: imageState.x,
+      origY: imageState.y,
+      origW: imageState.w,
+      origH: imageState.h
     });
   }
   e.stopPropagation();
@@ -20,8 +22,9 @@ export const onMouseMove = props => {
   const { e, id, eventState, dispatchImageState } = props;
 
   if (eventState.status === "mouse-down" && eventState.targetId === id) {
-    const newH = calcNewHeight({ eventState, clientY: e.clientY });
-    const newY = calcNewY({ eventState, clientY: e.clientY });
+    const MINHEIGHT = 25;
+    const newH = calcNewHeight({ eventState, clientY: e.clientY, MINHEIGHT });
+    const newY = calcNewY({ eventState, clientY: e.clientY, MINHEIGHT });
     dispatchImageState({
       type: "update",
       y: newY,

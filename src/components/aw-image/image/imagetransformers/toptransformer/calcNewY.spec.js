@@ -2,7 +2,7 @@ import { calcNewY } from "./calcNewY";
 
 describe("Transformer > TopTransformer > Calculate New Y", () => {
   test("Transform up", () => {
-    const eventState = { startY: 100, startH: 100 };
+    const eventState = { startY: 100, origY: 100, origH: 100 };
     const mouseEvent = { clientY: 100 };
     for (let i = mouseEvent.clientY; i >= 0; i--) {
       const newY = calcNewY({ eventState, clientY: i });
@@ -11,7 +11,7 @@ describe("Transformer > TopTransformer > Calculate New Y", () => {
   });
 
   test("Transform down", () => {
-    const eventState = { startY: 100, startH: 100 };
+    const eventState = { startY: 100, origY: 100, origH: 100 };
     const mouseEvent = { clientY: 100 };
     for (let i = mouseEvent.clientY; i < 210; i++) {
       const newY = calcNewY({ eventState, clientY: i });

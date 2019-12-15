@@ -1,6 +1,7 @@
 export const calcNewHeight = props => {
-  const { eventState, clientY } = props;
-  const newHeight = eventState.startH + (eventState.startY - clientY);
-  if (newHeight < 0) return 0;
+  const { eventState, clientY, MINHEIGHT } = props;
+
+  const newHeight = eventState.origH + (eventState.startY - clientY);
+  if (newHeight <= MINHEIGHT) return MINHEIGHT;
   return newHeight;
 };

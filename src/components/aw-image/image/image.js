@@ -1,6 +1,6 @@
 import React from "react";
 import * as MUI from "@material-ui/core";
-import ImageContainer from "./imagetranslator";
+import ImageTranslator from "./imagetranslator";
 import ImageTransformers from "./imagetransformers";
 import { TopTransformer } from "./imagetransformers";
 import { ImageContext } from "./context";
@@ -28,7 +28,7 @@ const Image = props => {
   }, [dispatchImageState, image]);
 
   return (
-    <ImageContainer>
+    <ImageTranslator>
       <ImageTransformers>
         <TopTransformer />
       </ImageTransformers>
@@ -38,7 +38,7 @@ const Image = props => {
         src={imageState.src}
         alt={imageState.alt}
       />
-    </ImageContainer>
+    </ImageTranslator>
   );
 };
 

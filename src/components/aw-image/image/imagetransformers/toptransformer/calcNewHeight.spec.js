@@ -1,7 +1,7 @@
 import { calcNewHeight } from "./calcNewHeight";
 describe("Transformer > TopTransformer > Calculate new height", () => {
   test("Transform up", () => {
-    const eventState = { startY: 100, startH: 100 };
+    const eventState = { startY: 100, origH: 100 };
     const mouseEvent = { clientY: 100 };
     for (let i = mouseEvent.clientY; i >= 0; i--) {
       const result = calcNewHeight({ clientY: i, eventState });
@@ -10,7 +10,7 @@ describe("Transformer > TopTransformer > Calculate new height", () => {
   });
 
   test("Transform down", () => {
-    const eventState = { startY: 100, startH: 100 };
+    const eventState = { startY: 100, origH: 100 };
     const mouseEvent = { clientY: 100 };
     for (let i = mouseEvent.clientY; i < 210; i++) {
       const result = calcNewHeight({ clientY: i, eventState });

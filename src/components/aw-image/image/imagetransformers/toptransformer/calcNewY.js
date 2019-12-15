@@ -1,9 +1,10 @@
 export const calcNewY = props => {
-  const { eventState, clientY } = props;
-  const maxY = eventState.startY + eventState.startH;
-  if (clientY > maxY) {
+  const { eventState, clientY, MINHEIGHT } = props;
+  const newY = eventState.origY + (clientY - eventState.startY);
+  const maxY = eventState.origY + eventState.origH - MINHEIGHT;
+  if (newY > maxY) {
     return maxY;
   } else {
-    return clientY;
+    return newY;
   }
 };
