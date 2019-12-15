@@ -1,11 +1,12 @@
-import { calcNewHeight } from "./calcNewHeight";
-describe("Transformer > TopTransformer > Calculate new height", () => {
+import { calcNewY } from "./calcNewY";
+
+describe("Transformer > TopTransformer > Calculate New Y", () => {
   test("Transform up", () => {
     const eventState = { startY: 100, startH: 100 };
     const mouseEvent = { clientY: 100 };
     for (let i = mouseEvent.clientY; i >= 0; i--) {
-      const result = calcNewHeight({ clientY: i, eventState });
-      expect(result).toBe(100 + (100 - i));
+      const newY = calcNewY({ eventState, clientY: i });
+      expect(newY).toBe(i);
     }
   });
 
@@ -13,11 +14,11 @@ describe("Transformer > TopTransformer > Calculate new height", () => {
     const eventState = { startY: 100, startH: 100 };
     const mouseEvent = { clientY: 100 };
     for (let i = mouseEvent.clientY; i < 210; i++) {
-      const result = calcNewHeight({ clientY: i, eventState });
+      const newY = calcNewY({ eventState, clientY: i });
       if (i <= 200) {
-        expect(result).toBe(100 - (i - 100));
+        expect(newY).toBe(i);
       } else {
-        expect(result).toBe(0);
+        expect(newY).toBe(200);
       }
     }
   });
