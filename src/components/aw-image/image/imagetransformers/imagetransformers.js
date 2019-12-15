@@ -6,7 +6,9 @@ const useStyles = MUI.makeStyles(theme => {
     imageTransformers: {
       position: "relative",
       top: 0,
-      left: 0
+      left: 0,
+      width: 0,
+      height: 0
     }
   };
 });
