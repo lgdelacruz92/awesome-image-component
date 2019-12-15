@@ -1,6 +1,6 @@
 import React from "react";
 import * as MUI from "@material-ui/core";
-import ImageContainer from "./imagecontainer";
+import ImageContainer from "./imagetranslator";
 import { ImageContext } from "./context";
 
 const useStyles = MUI.makeStyles(theme => {
