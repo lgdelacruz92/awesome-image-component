@@ -1,6 +1,7 @@
 import React from "react";
 import * as MUI from "@material-ui/core";
 import ImageContainer from "./imagetranslator";
+import ImageTransformers from "./imagetransformers";
 import { ImageContext } from "./context";
 
 const useStyles = MUI.makeStyles(theme => {
@@ -26,6 +27,7 @@ const Image = props => {
 
   return (
     <ImageContainer>
+      <ImageTransformers></ImageTransformers>
       <img
         className={classes.image}
         draggable={false}

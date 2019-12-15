@@ -7,7 +7,7 @@ import { onMouseDown, onMouseMove, onMouseUp } from "./eventhandlers";
 
 const useStyles = MUI.makeStyles(theme => {
   return {
-    imageContainer: {
+    imageTranslator: {
       position: "absolute",
       transform: props => translate(props.x, props.y),
       width: props => props.w,
@@ -18,7 +18,7 @@ const useStyles = MUI.makeStyles(theme => {
   };
 });
 
-const ImageContainer = props => {
+const ImageTranslator = props => {
   const { children } = props;
   const { imageState, dispatchImageState } = React.useContext(ImageContext);
   const classes = useStyles(imageState);
@@ -29,11 +29,11 @@ const ImageContainer = props => {
       onMouseMove={props => onMouseMove({ ...props, dispatchImageState })}
       onMouseUp={onMouseUp}
       id={imageState.id}
-      className={classes.imageContainer}
+      className={classes.imageTranslator}
     >
       {children}
     </ComponentListener>
   );
 };
 
-export default ImageContainer;
+export default ImageTranslator;
