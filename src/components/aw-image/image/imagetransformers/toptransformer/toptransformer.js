@@ -1,18 +1,14 @@
 import React from "react";
 import * as MUI from "@material-ui/core";
 import { ImageContext } from "components/aw-image/image/context";
-import ComponentListener from "@bit/lgdelacruz92.awesome-components.componentlistener";
 import { onMouseDown, onMouseMove, onMouseUp } from "./eventhandlers";
+import Transformer from "../transformer";
 
 const useStyles = MUI.makeStyles(theme => {
   return {
     topTransformer: {
-      position: "absolute",
       width: props => props.w,
       height: 10,
-      borderRadius: 5,
-      boxShadow: "0 1px 2px grey",
-      background: "#ccc",
       transform: props => `translate(${props.x}px, -50%)`,
       "&:hover": {
         cursor: "ns-resize"
@@ -30,7 +26,7 @@ const TopTransformer = props => {
     w: WIDTH
   });
   return (
-    <ComponentListener
+    <Transformer
       id={id}
       onMouseDown={props => onMouseDown({ ...props, imageState })}
       onMouseMove={props => onMouseMove({ ...props, dispatchImageState })}
