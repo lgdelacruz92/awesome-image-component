@@ -1,6 +1,7 @@
 import React from "react";
 import * as MUI from "@material-ui/core";
 import { ImageContext } from "components/aw-image/image/context";
+import ComponentListener from "components/componentlistener";
 
 const useStyles = MUI.makeStyles(theme => {
   return {
@@ -20,18 +21,18 @@ const useStyles = MUI.makeStyles(theme => {
 
 const TopTransformer = props => {
   const WIDTH = 60;
-  const { imageState } = React.useContext(ImageContext);
+  const { imageState, dispatchImageState } = React.useContext(ImageContext);
   const classes = useStyles({
     x: (imageState.w - WIDTH) / 2,
     w: WIDTH
   });
   return (
-    <div
-      onClick={e => {
+    <ComponentListener
+      onClick={props => {
         console.log("transformer clicked");
-        e.stopPropagation();
+        props.e.stopPropagation();
       }}
-      onMouseDown={e => e.stopPropagation()}
+      onMouseDown={props => props.e.stopPropagation()}
       className={classes.topTransformer}
     />
   );

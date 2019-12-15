@@ -13,13 +13,20 @@ const ComponentListener = props => {
   } = props;
 
   React.useEffect(() => {
-    const _onMouseMove = e => onMouseMove({ e, id, eventState, setEventState });
-    const _onMouseUp = e => onMouseUp({ e, id, eventState, setEventState });
-    document.addEventListener("mousemove", _onMouseMove);
-    document.addEventListener("mouseup", _onMouseUp);
+    let _onMouseMove;
+    let _onMouseUp;
+    if (onMouseMove && onMouseUp) {
+      _onMouseMove = e => onMouseMove({ e, id, eventState, setEventState });
+      _onMouseUp = e => onMouseUp({ e, id, eventState, setEventState });
+      document.addEventListener("mousemove", _onMouseMove);
+      document.addEventListener("mouseup", _onMouseUp);
+    }
+
     return () => {
-      document.removeEventListener("mousemove", _onMouseMove);
-      document.removeEventListener("mouseup", _onMouseUp);
+      if (_onMouseMove && _onMouseUp) {
+        document.removeEventListener("mousemove", _onMouseMove);
+        document.removeEventListener("mouseup", _onMouseUp);
+      }
     };
   }, [eventState, id, onMouseMove, onMouseUp]);
 
