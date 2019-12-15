@@ -996,6 +996,11 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@bit/lgdelacruz92.awesome-components.componentlistener@^0.1.0":
+  version "0.1.0"
+  resolved "https://node.bit.dev/lgdelacruz92.awesome-components.componentlistener/-/lgdelacruz92.awesome-components.componentlistener-0.1.0.tgz#b633afed34acc82b0b485372dd370afa694b2a4e"
+  integrity sha1-tjOv7TSsyCsLSFNy3TcK+mlLKk4=
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.3.tgz#099139eaec7ebf07a27c1786a3ff64f39464d2ef"

@@ -1,7 +1,7 @@
 import React from "react";
 import * as MUI from "@material-ui/core";
 import { ImageContext } from "components/aw-image/image/context";
-import ComponentListener from "components/componentlistener";
+import ComponentListener from "@bit/lgdelacruz92.awesome-components.componentlistener";
 
 const useStyles = MUI.makeStyles(theme => {
   return {
