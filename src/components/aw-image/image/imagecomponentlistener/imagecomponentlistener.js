@@ -1,6 +1,6 @@
 import React from "react";
 import * as MUI from "@material-ui/core";
-import ComponentListener from "@bit/lgdelacruz92.awesome-components.componentlistener";
+import ComponentListener from "lgdelacruz.aw-component-listener";
 import clsx from "clsx";
 import { ImageContext } from "components/aw-image/image/context";
 import { onMouseDown, onMouseUp } from "./eventhandler";
