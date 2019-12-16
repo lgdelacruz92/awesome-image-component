@@ -4,11 +4,13 @@ export const onMouseDown = ({ e, id, setEventState, imageState }) => {
   if (e.currentTarget.id === id) {
     setEventState({
       status: "mouse-down",
-      mouseStartX: e.clientX,
-      mouseStartY: e.clientY,
       targetId: id,
-      imageStartX: imageState.x,
-      imageStartY: imageState.y
+      startX: e.clientX,
+      startY: e.clientY,
+      origX: imageState.x,
+      origY: imageState.y,
+      origW: imageState.w,
+      origH: imageState.h
     });
   }
   e.stopPropagation();
@@ -19,13 +21,10 @@ export const onMouseMove = ({ e, id, eventState, dispatchImageState }) => {
     const dir = makeVec(
       e.clientX,
       e.clientY,
-      eventState.mouseStartX,
-      eventState.mouseStartY
+      eventState.startX,
+      eventState.startY
     );
-    const moveVec = addVec(
-      { x: eventState.imageStartX, y: eventState.imageStartY },
-      dir
-    );
+    const moveVec = addVec({ x: eventState.origX, y: eventState.origY }, dir);
     dispatchImageState({
       type: "move",
       x: moveVec.x,
