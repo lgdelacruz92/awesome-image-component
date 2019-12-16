@@ -3,7 +3,7 @@ import * as MUI from "@material-ui/core";
 import { translate } from "components/utils";
 import ImageComponentListener from "../imagecomponentlistener";
 import { ImageContext } from "../context";
-import { onMouseMove } from "./eventhandlers";
+import { onMouseMove } from "./onMouseMove";
 
 const useStyles = MUI.makeStyles(theme => {
   return {
