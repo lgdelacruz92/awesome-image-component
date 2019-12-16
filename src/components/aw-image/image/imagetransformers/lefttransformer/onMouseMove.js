@@ -1,5 +1,4 @@
-import { calcNewX } from "./calcNewX";
-import { calcNewWidth } from "./calcNewWidth";
+import { calcNewX, calcNewWidth } from "./helpers";
 
 export const onMouseMove = props => {
   const { e, id, eventState, dispatchImageState } = props;
