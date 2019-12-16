@@ -1,14 +1,13 @@
 import React from "react";
 import * as MUI from "@material-ui/core";
 import { translate } from "components/utils";
-import ComponentListener from "components/componentlistener";
+import ImageComponentListener from "../imagecomponentlistener";
 import { ImageContext } from "../context";
-import { onMouseDown, onMouseMove, onMouseUp } from "./eventhandlers";
+import { onMouseMove } from "./eventhandlers";
 
 const useStyles = MUI.makeStyles(theme => {
   return {
     imageTranslator: {
-      position: "absolute",
       transform: props => translate(props.x, props.y),
       width: props => props.w,
       height: props => props.h,
@@ -23,16 +22,13 @@ const ImageTranslator = props => {
   const classes = useStyles(imageState);
 
   return (
-    <ComponentListener
-      onClick={props => props.e.stopPropagation()}
-      onMouseDown={props => onMouseDown({ ...props, imageState })}
-      onMouseMove={props => onMouseMove({ ...props, dispatchImageState })}
-      onMouseUp={onMouseUp}
+    <ImageComponentListener
       id={imageState.id}
       className={classes.imageTranslator}
+      onMouseMove={props => onMouseMove({ ...props, dispatchImageState })}
     >
       {children}
-    </ComponentListener>
+    </ImageComponentListener>
   );
 };
 
