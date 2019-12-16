@@ -1,11 +1,3 @@
-export const isEventTranslate = event => {
-  return event.status === "mouse-down" && event.action === "translate";
-};
-
-export const isTargetSelf = (event, id) => {
-  return event.targetId === id;
-};
-
 export const calVec = (startPos, endPos) => {
   return { x: endPos.x - startPos.x, y: endPos.y - startPos.y };
 };
@@ -16,8 +8,4 @@ export const addVec = (v1, v2) => {
 
 export const makeVec = (x1, y1, x2, y2) => {
   return { x: x1 - x2, y: y1 - y2 };
-};
-
-export const isEventTransform = event => {
-  return event.status === "mouse-down" && event.action === "transform";
 };
