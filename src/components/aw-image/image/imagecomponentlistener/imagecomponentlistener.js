@@ -22,7 +22,12 @@ const ImageComponentListener = props => {
     <ComponentListener
       id={id}
       onMouseDown={props => onMouseDown({ ...props, imageState })}
-      onMouseMove={onMouseMove}
+      onMouseMove={props => {
+        const { id, eventState } = props;
+        if (eventState.status === "mouse-down" && eventState.targetId === id) {
+          onMouseMove(props);
+        }
+      }}
       onMouseUp={onMouseUp}
       className={clsx(classes.imageComponentListener, className)}
     >
