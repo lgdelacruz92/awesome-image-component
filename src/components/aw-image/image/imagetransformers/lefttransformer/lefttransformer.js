@@ -3,6 +3,8 @@ import * as MUI from "@material-ui/core";
 import { ImageContext } from "components/aw-image/image/context";
 import { onMouseMove } from "./onMouseMove";
 import ImageComponentListener from "../../imagecomponentlistener";
+import { useTransformerStyle } from "../usetransformerstyle";
+import clsx from "clsx";
 
 const useStyles = MUI.makeStyles(theme => {
   return {
@@ -25,11 +27,13 @@ const LeftTransformer = props => {
     y: (imageState.h - HEIGHT) / 2,
     h: HEIGHT
   });
+  const transformerStyle = useTransformerStyle();
+
   return (
     <ImageComponentListener
       id={id}
       onMouseMove={props => onMouseMove({ ...props, dispatchImageState })}
-      className={classes.leftTransformer}
+      className={clsx(classes.leftTransformer, transformerStyle.transformer)}
     />
   );
 };
