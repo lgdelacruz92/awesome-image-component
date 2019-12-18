@@ -1,9 +1,9 @@
 import React from "react";
 import * as MUI from "@material-ui/core";
-import { ImageContext } from "components/aw-image/image/context";
+import { ImageContext } from "components/aw-image/context";
 import { onMouseMove } from "./onMouseMove";
-import ImageComponentListener from "../../imagecomponentlistener";
-import { useTransformerStyle } from "../usetransformerstyle";
+import ImageComponentListener from "../imagecomponentlistener";
+import { useTransformerStyle } from "../imagetransformers/usetransformerstyle";
 import clsx from "clsx";
 
 const useStyles = MUI.makeStyles(theme => {

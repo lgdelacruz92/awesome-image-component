@@ -1,4 +1,4 @@
-import { makeVec, addVec } from "../utils";
+import { makeVec, addVec } from "../image/utils";
 
 export const onMouseMove = ({ e, id, eventState, dispatchImageState }) => {
   if (eventState.targetId === id && eventState.status === "mouse-down") {
