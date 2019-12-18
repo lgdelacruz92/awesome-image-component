@@ -1,9 +1,10 @@
-import { calcNewHeight } from "./calcNewHeight";
+import { calcNewHeightTop, calcNewHeightBottom } from "./calcNewHeight";
 import { calcNewY } from "./calcNewY";
 import { calcNewX } from "./calcNewX";
 import { calcNewWidthLeft, calcNewWidthRight } from "./calcNewWidth";
 export {
-  calcNewHeight,
+  calcNewHeightTop,
+  calcNewHeightBottom,
   calcNewY,
   calcNewX,
   calcNewWidthLeft,

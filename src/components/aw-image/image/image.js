@@ -7,6 +7,7 @@ import LeftTransformer from "../lefttransformer";
 import { ImageContext } from "../context";
 import TopLeftTransformer from "../toplefttransformer";
 import RightTransformer from "../righttransformer";
+import BottomTransformer from "../bottomtransformer";
 
 const useStyles = MUI.makeStyles(theme => {
   return {
@@ -37,6 +38,7 @@ const Image = props => {
         <LeftTransformer />
         <TopLeftTransformer />
         <RightTransformer />
+        <BottomTransformer />
       </ImageTransformers>
       <img
         style={{ objectFit: "cover" }}
