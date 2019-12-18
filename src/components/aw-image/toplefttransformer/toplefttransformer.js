@@ -3,7 +3,7 @@ import * as MUI from "@material-ui/core";
 import { ImageContext } from "components/aw-image/context";
 import { onMouseMove } from "./onMouseMove";
 import ImageComponentListener from "../imagecomponentlistener";
-import { useTransformerStyle } from "../imagetransformers/usetransformerstyle";
+import { useTransformerStyle } from "../helpers/usetransformerstyle";
 import clsx from "clsx";
 
 const useStyles = MUI.makeStyles(theme => {
