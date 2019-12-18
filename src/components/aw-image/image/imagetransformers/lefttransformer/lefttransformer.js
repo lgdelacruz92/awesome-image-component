@@ -9,7 +9,7 @@ import clsx from "clsx";
 const useStyles = MUI.makeStyles(theme => {
   return {
     leftTransformer: {
-      width: 10,
+      width: 6,
       height: props => props.h,
       transform: props => `translate(-50%, ${props.y}px)`,
       "&:hover": {

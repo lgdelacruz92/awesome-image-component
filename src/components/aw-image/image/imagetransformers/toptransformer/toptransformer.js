@@ -10,7 +10,7 @@ const useStyles = MUI.makeStyles(theme => {
   return {
     topTransformer: {
       width: props => props.w,
-      height: 10,
+      height: 6,
       transform: props => `translate(${props.x}px, -50%)`,
       "&:hover": {
         cursor: "ns-resize"

@@ -9,8 +9,8 @@ import clsx from "clsx";
 const useStyles = MUI.makeStyles(theme => {
   return {
     topTransformer: {
-      width: 10,
-      height: 10,
+      width: 8,
+      height: 8,
       transform: `translate(-50%, -50%)`,
       "&:hover": {
         cursor: "nwse-resize"
